@@ -1,0 +1,44 @@
+﻿@page
+@model SevStudentsApp.Pages.Teachers.UpdateModel
+@{
+}
+
+<h2>Τροποποίηση Διδάσκοντα</h2>
+@if (!Model.errorMessage.Equals(""))
+{
+    <h2><strong>@Model.errorMessage</strong></h2>
+}
+
+<form method="POST">
+    <div class="row mb-3">
+        <input type="hidden" class="form-control" name="id"  
+                   value="@Model.teacherDto.Id" />
+        
+    </div>
+    <div class="row mb-3">
+        <label for="firstname" class="col-md-1 col-form-label">Όνομα</label>
+        <div>
+            <input type="text" class="form-control"
+                   name="firstname" id="firstname" placeholder="Εισάγετε το όνομα σας"
+                   value="@Model.teacherDto.Firstname" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="lastname" class="col-md-1 col-form-label">Επώνυμο</label>
+        <div>
+            <input type="text" class="form-control"
+                   name="lastname" id="lastname" placeholder="Εισάγεται το επίθετο σας"
+                   value="@Model.teacherDto.Lastname" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-md-1 col-md-3 d-grid">
+            <button type="submit" class="btn btn-primary">Τροποίηση</button>
+        </div>
+        <div class="offset-md-1 col-md-3 d-grid">
+            <a href="/Teachers/Index" role="button" class="btn btn-primary">Ακύρωση</a>
+        </div>
+    </div>
+</form>
+
+<a class="btn btn-primary btn-sm" href="/Teachers/Index">Επιστροφή</a>

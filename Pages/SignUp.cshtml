@@ -1,0 +1,37 @@
+﻿@page
+@model SignUpModel
+
+
+  <div class="container border rounded shadow bg-light my-3 py-3">
+    <h1 class="text-center"> Εγγραφή σε Newsletter </h1>
+
+        <form method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">Όνομα:</label>
+            <input type="text" class="form-control" name="username" id="username" required><br>
+          </div>
+          <div>
+            <label for="lastname" class="form-label">Επώνυμο:</label>
+            <input type="text" class="form-control" name="lastname" id="lastname" required><br>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" required> <br>
+          </div>
+          <div class="mb-3">
+            <label for="subscription" class="form-check-label">Εγγραφή σε:</label> <br>
+             <input type="checkbox" name="subscription" id="subscription" id="1">
+             <label for="1">Ανακοινώσεις καθηγητών</label><br>
+             <input type="checkbox" name="subscription" id="subscription" id="2">
+             <label for="2">Ανακοινώσεις μαθημάτων</label><br>
+          </div>
+          <div class="d-grid gap-2 d-md-block">
+          <input class="btn btn-primary" type="submit" value="Εγγραφή"><a
+                                            onclick="return confirm('Έχετε εγγραφεί επιτυχώς!!')" 
+                                                    href="/"></a>
+          <input class="btn btn-primary" type="submit" value="Ακύρωση"><a href="/"></a>
+          </div>
+        </form>
+  </div>
+
+          

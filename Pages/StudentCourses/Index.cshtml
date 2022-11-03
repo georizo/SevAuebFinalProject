@@ -1,0 +1,46 @@
+﻿@page
+@model SevStudentsApp.Pages.StudentCourses.IndexModel
+@{
+}
+
+<h2>Λίστα εγγεγραμμένων φοιτητών</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Όνομα</th>
+            <th>Επώνυμο</th>
+            <th>Subject Id</th>
+            <th>Περιγραφή Μαθήματος</th></tr>
+        </thead>
+        <tbody>
+        @if (Model.courses is not null)
+        {
+            @foreach (var studentCourse in Model.studentCourse)
+            {
+                        <tr>
+                            <td>@studentCourse.studentId</td>
+                    @{
+                        var student = Model.students.Where(x => x.Id == studentCourse.studentId).First();
+                    }
+                            <td>@student.Firstname</td>
+                            <td>@student.Lastname</td>
+                            <td>@studentCourse.courseId</td>
+                    @{
+                        var course = Model.courses.Where(x => x.Id == studentCourse.courseId).First();
+                    }
+                            <td>@course.description</td>
+
+                            <td>
+                                        <a class="btn btn-primary btn-sm" 
+                                            onclick="return confirm('Έχετε επιλέξει απεγγραφή.Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Θέλετε να συνεχίσετε;')" 
+                                                    href="/StudentCourses/Delete?sid=@studentCourse.studentId&cid=@studentCourse.courseId">Απεγγραφή</a>
+                            </td>
+                        </tr>
+
+            }
+        }
+        </tbody>
+</table>
+
+<a class="btn btn-primary btn-sm" href="/">Επιστροφή</a>

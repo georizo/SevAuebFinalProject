@@ -1,0 +1,51 @@
+﻿@page
+@model SevStudentsApp.Pages.Courses.CreateModel
+@{
+}
+
+<h2>Τροποποίηση Μαθήματος</h2>
+@if (!Model.errorMessage.Equals("")) {
+    <h2><strong>@Model.errorMessage</strong></h2>
+}
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.courseDto.Id" />
+    <div class="row mb-3">
+        <label for="description" class="col-md-1 col-form-label">Περιγραφή Μαθήματος</label>
+        <div>
+            <input type="text" class="form-control" name="description" id="description" 
+            placeholder="Enter Description" value="@Model.courseDto.description" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="teacherid" class="col-md-1 col-form-label">TeacherID</label>
+        <div>
+
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    @foreach (var teacher in Model.teachers)
+                    {
+                        listItems.Add(new SelectListItem
+                {
+                    Text = @teacher.Lastname,
+                    Value = @teacher.Id.ToString()
+                });
+
+                    }
+                }
+
+                @Html.DropDownList("teacherid", listItems, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-md-1 col-md-3 d-grid">
+            <button type="submit" class="btn btn-primary">Τροποποίηση</button>
+        </div>
+        <div class="offset-md-1 col-md-3 d-grid">
+           <a href="/Courses/Index" role="button" class="btn btn-primary">Ακύρωση</a>
+        </div>
+    </div>
+</form>
+
+<a class="btn btn-primary btn-sm" href="/Courses/Index">Επιστροφή</a>

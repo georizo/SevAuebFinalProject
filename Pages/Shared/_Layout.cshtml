@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SevStudentsApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SevStudentsApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        
+        <nav class="navbar navbar-expand-lg" style="background-color:indigo">
+    <div class="container-fluid">
+      <button class="navbar-toggler" style="background-color:white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">Menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" asp-area="" asp-page="/Index" style="color:white">Αρχική</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+             Φοιτητές
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark-lg-end">
+              <li><a class="dropdown-item" asp-area="" asp-page="/Students/Create">Καταχώρηση Νέου Φοιτητή</a></li>
+              <li><a class="dropdown-item" asp-area="" asp-page="/Students/Index">Επεξεργασία Φοιτητών</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+             Διδακτικό Προσωπικό
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" asp-area="" asp-page="/Teachers/Create" >Καταχώρηση Νέου Διδάσκοντα</a></li>
+              <li><a class="dropdown-item" asp-area="" asp-page="/Teachers/Index">Επεξεργασία Διδασκόντων</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+              Εκπαίδευση
+            </a>
+            <ul class="dropdown-menu">
+               <li><a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Λίστα Διαθέσιμων Μαθημάτων Προγράμματος</a></li>
+               <li><a class="dropdown-item" asp-area="" asp-page="/Courses/Create">Δημιουργία Νέου Μαθήματος</a></li>
+              <li><a class="dropdown-item" asp-area="" asp-page="/StudentCourses/Create">Εγγραφή Φοιτητή σε Μάθημα</a></li>
+              <li><a class="dropdown-item" asp-area="" asp-page="/StudentCourses/Index">Εγγεγραμμένοι Φοιτητές Μαθημάτων</a></li>
+            </ul>
+          </li>
+
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+             Ανακοινώσεις
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" asp-area="" asp-page="/SignUp" >Εγγραφή στο NewsLetter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+        
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - SevStudentsApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

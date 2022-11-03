@@ -1,0 +1,65 @@
+﻿@page
+@model SevStudentsApp.Pages.StudentCourses.CreateModel
+@{
+}
+
+<h2>Εγγραφή σε Μαθήμα</h2>
+@if (!Model.errorMessage.Equals("")) {
+    <h2><strong>@Model.errorMessage</strong></h2>
+}
+
+<form method="POST">
+    <div class="row mb-3">
+       <label for="studentid" class="col-md-1 col-form-label">Φοιτητής:</label>
+        <div>
+
+            @{
+                List<SelectListItem> listAllItems = new List<SelectListItem>();
+                @foreach (var student in Model.students)
+                {
+                    listAllItems.Add(new SelectListItem
+                {
+                    Text = @student.Firstname + " " + student.Lastname,
+                    Value = @student.Id.ToString()
+                });
+
+                }
+            }
+
+            @Html.DropDownList("studentid", listAllItems, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="courseid" class="col-md-1 col-form-label">Μάθημα:</label>
+        <div>
+
+            @{
+                List<SelectListItem> listItems = new List<SelectListItem>();
+                @foreach (var course in Model.courses)
+                {
+                    listItems.Add(new SelectListItem
+                {
+                    Text = @course.description,
+                    Value = @course.Id.ToString()
+                });
+
+                }
+            }
+
+            @Html.DropDownList("courseid", listItems, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="offset-md-1 col-md-3 d-grid">
+            <button type="submit" class="btn btn-primary">Υποβολή</button>
+        </div>
+        <div class="offset-md-1 col-md-3 d-grid">
+           <a href="/" role="button" class="btn btn-primary">Ακύρωση</a>
+        </div>
+    </div>
+</form>
+
+<a class="btn btn-primary btn-sm" href="../">Επιστροφή</a>

@@ -1,0 +1,37 @@
+﻿@page
+@model SevStudentsApp.Pages.Students.IndexModel
+@{
+}
+
+<h2>Λίστα Φοιτητών</h2>
+@*<a class="btn btn-primary btn-sm" href="/Students/Create">New Student</a>*@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Όνομα</th>
+            <th>Επώνυμο</th></tr>
+        </thead>
+        <tbody>
+            @if (Model.students is not null) 
+            {
+                @foreach (var student in Model.students) 
+                {
+                    <tr>
+                        <td>@student.Id</td>
+                        <td>@student.Firstname</td>
+                        <td>@student.Lastname</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" 
+                                    href="/Students/Update?id=@student.Id">Τροποποίηση</a>
+                            <a class="btn btn-primary btn-sm" 
+                                            onclick="return confirm('Έχετε επιλέξει διαγραφή.Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Θέλετε να συνεχίσετε;')" 
+                                                    href="/Students/Delete?id=@student.Id">Διαγραφή</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+</table>
+
+<a class="btn btn-primary btn-sm" href="../">Επιστροφή</a>

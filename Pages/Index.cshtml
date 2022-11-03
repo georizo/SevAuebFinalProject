@@ -1,0 +1,78 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a asp-area="" asp-page="/Teachers/Index"><img src="images/Teaching.jpg" class="d-block w-100" alt="Διδακτικό Προσωπικό"></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Καθηγητές</h5>
+        <p>Γνωρίστε καλύτερα το διδακτικό προσωπικό μας.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a asp-area="" asp-page="/Courses/Index"><img src="images/allcourses.jpg" class="d-block w-100" alt="Εκπαίδευση"></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Διαθέσιμα Προγράμματα Διδασκαλίας</h5>
+        <p>Ενημερωθείτε για τα μαθήματα που είναι διαθέσιμα και θα επιθυμούσατε να παρακολουθήσετε.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a asp-area="" asp-page="/Students/Index"><img src="images/students.jpg" class="d-block w-100" alt="Φοιτητές"></a>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Φοιτητές </h5> </a>
+        <p>Οι φοιτητές μας.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Επικοινωνία με Γραμματεία Τμήματος</h5>
+        <dl>
+    <dt> 
+        <a href="https://www.aueb.gr/el/content/dia-vioy-mathisi-kedivim-opa" target="_blank">ΚΕΝΤΡΟ ΕΚΠΑΙΔΕΥΣΗΣ ΚΑΙ ΔΙΑ ΒΙΟΥ ΜΑΘΗΣΗΣ</a>
+        </dt>
+    <dd>
+        <ul>
+            <li>210 8203 106</li>
+            <li>210 8203 107</li>
+        </ul>
+        <p>
+            Email : <a href="">kedivim@aueb.gr</a>
+        </p>
+    </dd>
+
+</dl>
+        <a href="https://www.aueb.gr/el/content/dia-vioy-mathisi-kedivim-opa" class="btn btn-primary" target="_blank" style="background-color:indigo">Περισσότερες πληροφορίες ΚΕΔΙΒΙΜ</a>
+        <br />
+        <br />
+        <a href="https://www.sev.org.gr/" class="btn btn-primary" target="_blank" style="background-color:indigo">Περισσότερες πληροφορίες σχετικά με τον Σ.Ε.Β:</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Χάρτης Πρόσβασης</h5>
+        <p class="card-text"><iframe src="https://www.google.com/maps/d/embed?mid=19ijzMmn6HB5BMshhcPtTTMyTOy-N_Yj1&hl=el&ehbc=2E312F" width="80%" height="300"></iframe></p>
+      </div>
+    </div>
+  </div>
+</div>
