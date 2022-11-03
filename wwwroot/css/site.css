@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 568px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.btn-primary {
+    background-color:indigo;
+}
+
+.navbar-toggler-icon{
+    width:50px;
+    font-display:auto;
+    display:grid;
+}
+
